@@ -31,7 +31,6 @@
 <body>
   <h2>📊 Semáforo Custodias</h2>
   <div id="tabla">Cargando datos...</div>
-
   <iframe id="mapa" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
 
   <script>
@@ -41,7 +40,6 @@
         const tabla = document.createElement('table');
         const headers = Object.keys(data[0]).filter(k => k !== "MAPA_URL");
 
-        // Crear encabezados
         const thead = tabla.insertRow();
         headers.forEach(header => {
           const th = document.createElement('th');
@@ -49,7 +47,6 @@
           thead.appendChild(th);
         });
 
-        // Crear filas
         data.forEach(row => {
           const tr = tabla.insertRow();
           headers.forEach(header => {
@@ -58,7 +55,6 @@
             td.style.background = row[header].color;
           });
 
-          // Cargar el mapa al hacer clic
           tr.addEventListener('click', () => {
             const url = row.MAPA_URL;
             if (url && url.startsWith('http')) {
